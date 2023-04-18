@@ -55,6 +55,13 @@ string_list = ['Contact me at john.doe@example.com', 'Email me at jane.smith@exa
 email_matches = extract_patterns(email_pattern, string_list)
 print(email_matches)
 
+# Task: Given a list of phone numbers in different formats, extract and normalize them to a standard format.
+text = "Please call me at (123) 456-7890 or 123-456-7891 if you have any questions."
+
+matches = re.findall(r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}", text)
+
+print(matches)
+
 
 
 
