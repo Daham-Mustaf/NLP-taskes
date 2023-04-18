@@ -63,6 +63,30 @@ matches = re.findall(r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}", text)
 print(matches)
 
 
+# Task: Given a list of email addresses, extract the username and domain name from each email address.
+emails = ['john.doe@example.com', 'jane.doe@example.org', 'jim.smith@gmail.com']
+
+parsed_emails = []
+for email in emails:
+    match = re.match(r'^([\w.-]+)@([\w.-]+)$', email)
+    if match:
+        username = match.group(1)
+        domain = match.group(2)
+        parsed_emails.append((username, domain))
+        
+print(parsed_emails)
+
+
+
+def extract_dates(text):
+    pattern = r"\b([0123]?\d)[\./-]([01]?\d)[\./-]([12]\d{3})\b"
+    matches = re.findall(pattern, text)
+    return [f"{match[0]}.{match[1]}.{match[2]}" for match in matches]
+
+text = "Some possible dates are 12/31/2022, 1-15-2023, and 02.28.2023"
+dates = extract_dates(text)
+print(dates) # Output: ['12.31.2022', '1.15.2023', '02.28.2023']
+
 
 
 
